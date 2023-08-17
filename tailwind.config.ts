@@ -13,6 +13,7 @@ const config: Config = {
         green300: '#00b37e',
         gradientGreen: '#1EA483',
         gradientPurple: '#7465D4',
+        footerBackground: 'rgba(0, 0, 0, 0.6)',
       },
       maxWidth: {
         container: '1180px',
