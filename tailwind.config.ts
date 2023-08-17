@@ -14,6 +14,7 @@ const config: Config = {
       },
       maxWidth: {
         container: '1180px',
+        homeContainer: 'calc(100vw - ((100vw - 1180px) / 2))',
       },
     },
   },
