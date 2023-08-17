@@ -11,6 +11,8 @@ const config: Config = {
         gray100: '#e1e1e6',
         green500: '#00875f',
         green300: '#00b37e',
+        gradientGreen: '#1EA483',
+        gradientPurple: '#7465D4',
       },
       maxWidth: {
         container: '1180px',

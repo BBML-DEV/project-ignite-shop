@@ -8,11 +8,11 @@ interface CardProductProps {
 
 export const CardProduct = ({ productImage, productName }: CardProductProps) => {
   return (
-    <div>
+    <div className='p-1 rounded-lg bg-gradient-to-b from-gradientGreen to-gradientPurple shadow-md "]'>
       <Image src={productImage} width={520} height={480} alt="" />
-      <footer>
-        <strong>{productName}</strong>
-        <span>R$ 79,90</span>
+      <footer className='flex flex-row justify-between py-8 px-10 bg-gray800 rounded-md'>
+        <strong className='text-sm text-gray300'>{productName}</strong>
+        <span className='font-normal text-base text-green300'>R$ 79,90</span>
       </footer>
     </div>
   );
