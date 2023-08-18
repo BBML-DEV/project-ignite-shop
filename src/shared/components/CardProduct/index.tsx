@@ -1,28 +1,32 @@
-import Image from 'next/image';
-import React from 'react';
+import Image from 'next/image'
+import React from 'react'
 
 interface CardProductProps {
-  productImage: StaticImageData;
-  productName: string;
-  customClass: string;
+  productImage: StaticImageData
+  productName: string
+  customClass: string
 }
 
-export const CardProduct = ({ productImage, productName, customClass}: CardProductProps) => {
+export const CardProduct = ({
+  productImage,
+  productName,
+  customClass,
+}: CardProductProps) => {
   return (
-    <a className={`flex flex-col 
-    items-center 
-    relative justify-center 
-    cursor-pointer p-1 
-    rounded-lg bg-gradient-to-b from-gradientGreen 
-    to-gradientPurple 
-    shadow-md group 
-    card-product ${customClass}`}
+    <a
+      className={`card-product group relative flex cursor-pointer flex-col items-center justify-center rounded-lg bg-gradient-to-b from-gradientGreen to-gradientPurple p-1 shadow-md ${customClass}`}
     >
-      <Image src={productImage} width={520} height={480} alt="" className='object-cover' />
-      <footer className='flex justify-between items-center transform translateY-110 opacity-0 transition-all duration-200 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 absolute bottom-1 left-1 right-1 p-8 bg-footerBackground rounded-md'>
-        <strong className='text-lg text-gray300'>{productName}</strong>
-        <span className='font-bold text-base text-green500'>R$ 79,90</span>
+      <Image
+        src={productImage}
+        width={520}
+        height={480}
+        alt=""
+        className="object-cover"
+      />
+      <footer className="translateY-110 absolute bottom-1 left-1 right-1 flex transform items-center justify-between rounded-md bg-footerBackground p-8 opacity-0 transition-all duration-200 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
+        <strong className="text-lg text-gray300">{productName}</strong>
+        <span className="text-base font-bold text-green500">R$ 79,90</span>
       </footer>
     </a>
-  );
-};
+  )
+}
