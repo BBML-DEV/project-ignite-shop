@@ -1,12 +1,20 @@
-import Camiseta1 from '@/assets/1.png'
-import Camiseta2 from '@/assets/2.png'
-import Camiseta3 from '@/assets/3.png'
-import Camiseta4 from '@/assets/4.png'
+import { stripe } from '@/lib/stripe'
 import { CardProduct } from '@/shared/components/CardProduct'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
+import { GetServerSideProps } from 'next'
+import Stripe from 'stripe'
 
-export default function Home() {
+interface HomeProps {
+  products: {
+    id: string
+    name: string
+    image: string
+    price: number
+  }[]
+}
+
+export default function Home({ products }: HomeProps) {
   const [slideRef] = useKeenSlider({
     slides: {
       perView: 3,
@@ -19,26 +27,43 @@ export default function Home() {
       ref={slideRef}
       className="keen-slider ml-auto mt-8 flex min-h-[656px] w-full max-w-homeContainer flex-row"
     >
-      <CardProduct
-        productImage={Camiseta1}
-        productName="Produto1"
-        customClass="keen-slider__slide"
-      />
-      <CardProduct
-        productImage={Camiseta2}
-        productName="Produto2"
-        customClass="keen-slider__slide"
-      />
-      <CardProduct
-        productImage={Camiseta3}
-        productName="Produto3"
-        customClass="keen-slider__slide"
-      />
-      <CardProduct
-        productImage={Camiseta4}
-        productName="Produto4"
-        customClass="keen-slider__slide"
-      />
+      {products.map((product) => {
+        return (
+          <CardProduct
+            productImage={product.image}
+            productName={product.name}
+            productPrice={product.price}
+            productId={product.id}
+            customClass="keen-slider__slide"
+          />
+        )
+      })}
     </main>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await stripe.products.list({
+    expand: ['data.default_price'],
+  })
+
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price
+
+    return {
+      id: product.id,
+      name: product.name,
+      image: product.images[0],
+      price: new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(price.unit_amount ? price.unit_amount / 100 : 0),
+    }
+  })
+
+  return {
+    props: {
+      products,
+    },
+  }
 }
