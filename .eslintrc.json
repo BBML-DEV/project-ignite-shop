@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "@rocketseat/eslint-config/next"
-  ]
+  "extends": "@rocketseat/eslint-config/next"
 }

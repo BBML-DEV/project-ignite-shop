@@ -21,7 +21,7 @@ export const CardProduct = ({
   reference,
 }: CardProductProps) => {
   return (
-    <Link href={`/product/${reference}`} key={productId}>
+    <Link href={`/product/${reference}`} key={productId} prefetch={false}>
       <div
         className={twMerge(
           `card-product group relative flex cursor-pointer flex-col`,
