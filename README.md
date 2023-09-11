@@ -8,8 +8,6 @@ Foi utilizado a plataforma Stripe que proporciona a infra-estrutura técnica, de
 
 
 
-Demonstração do projeto em funcionamento: https://project-ignite-shop-gb4rwqp2c-bbml-dev.vercel.app/
-
 ## 🔨Construído com 
 
  - NextJS
