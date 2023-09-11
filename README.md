@@ -7,6 +7,9 @@ Projeto Ignite Shop é um e-commerce de camisetas que foi desenvolvido utilizand
 Foi utilizado a plataforma Stripe que proporciona a infra-estrutura técnica, de prevenção de fraude e bancária necessária para operar sistemas de pagamento em linha.
 
 
+#### Demonstração do projeto em funcionamento: https://project-ignite-shop-p42btnwim-bbml-dev.vercel.app/
+
+
 
 ## 🔨Construído com 
 
