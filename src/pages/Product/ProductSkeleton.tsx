@@ -1,7 +1,7 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export const ProductSkeleton = () => {
+const ProductSkeleton = () => {
   return (
     <main className="mx-auto mb-0 mt-8 grid w-full max-w-container grid-cols-2 items-stretch gap-16">
       <div
@@ -21,3 +21,5 @@ export const ProductSkeleton = () => {
     </main>
   )
 }
+
+export default ProductSkeleton
